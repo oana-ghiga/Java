@@ -1,4 +1,4 @@
-package lab1.bonus;
+package lab1.lab1.bonus;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

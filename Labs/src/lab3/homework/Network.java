@@ -3,6 +3,7 @@
 //import java.util.Date;
 //import java.util.HashMap;
 //public class Network {
+//-> un array list de obiecte pt fiecare in parte gen programmer1, programmer2, programmer3, etc same for companies
 //    private final ArrayList<Object> nodes;
 //    private List<Object> network;
 //    /**

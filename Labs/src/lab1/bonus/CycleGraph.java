@@ -1,4 +1,4 @@
-package lab1.bonus;
+package lab1.lab1.bonus;
 
 /**
  * This class computes the powers of the adjacency matrix of a cycle graph Cn.

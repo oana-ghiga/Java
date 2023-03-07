@@ -2,12 +2,13 @@ package lab1.bonus;
 
 import java.util.Arrays;
 
-import static lab1.bonus.RegularGraph.createRandRegGraph;
-import static lab1.bonus.RegularGraph.printAdjMatrix;
+import static lab1.lab1.bonus.RegularGraph.createRandRegGraph;
+import static lab1.lab1.bonus.RegularGraph.printAdjMatrix;
+
 
 public class Main {
     public static void main(String[] args) {
-        CycleGraph cg = new CycleGraph(5);  // create cycle graph C5
+     lab1.lab1.bonus.CycleGraph cg = new lab1.lab1.bonus.CycleGraph(5);  // create cycle graph C5
         for (int i = 2; i <= 5; i++) {
             int[][] Ak = cg.power(i);
             System.out.println("A^" + i + ":");

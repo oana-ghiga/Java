@@ -74,7 +74,7 @@ public class Main {
 
 ////////////EX4///////////////
 
-        int x = 50000; // specify the size of the Latin Square
+        int x = 30000; // specify the size of the Latin Square
         int[][] matrix = new int[x][x]; // create an n x n matrix
 
         long startTime = System.nanoTime(); // start the timer
