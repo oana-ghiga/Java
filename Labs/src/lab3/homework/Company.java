@@ -1,7 +1,7 @@
 package lab3.homework;
 import java.util.*;
 import java.util.HashMap;
-public class Company {
+public class Company implements Comparable{
     private String name;
     private Map<Person, String> employees; // Person-to-company relationships
     private String specificProperty;
@@ -64,5 +64,10 @@ public class Company {
     @Override
     public String toString() {
         return name;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
     }
 }

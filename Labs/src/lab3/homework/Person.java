@@ -1,13 +1,13 @@
 package lab3.homework;
+import java.time.LocalDate;
 import java.util.*;
-import java.util.Date;
 import java.util.HashMap;
 
-public class Person {
+public class Person implements Comparable{
     private String name;
-    private Date birthDate;
+    private LocalDate birthDate;
     private Map<Person, String> relationships; // Person-to-person relationships
-    private Map<Company, String> employment; // Person-to-company relationships
+    private static Map<Company, String> employment; // Person-to-company relationships
     private int specificProperty;
     private Company employer;
 
@@ -17,7 +17,7 @@ public class Person {
      * @param name the name of the person
      * @param birthDate the birth date of the person
      */
-    public Person(String name, Date birthDate) {
+    public Person(String name, LocalDate birthDate) {
         this.name = name;
         this.birthDate = birthDate;
         this.relationships = new HashMap<>();
@@ -39,7 +39,7 @@ public class Person {
      *
      * @return the birth date of the person
      */
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
@@ -79,6 +79,10 @@ public class Person {
         this.specificProperty = specificProperty;
     }
 
+    public void setEmployer(Company employer, String position) {
+        this.employer = employer;
+    }
+
     /**
      * Adds a person-to-person relationship to the map of relationships.
      *
@@ -113,6 +117,11 @@ public class Person {
 
     public Company getEmployer() {
         return employer;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
     }
 }
 

@@ -1,7 +1,6 @@
 package lab3.homework;
-import java.util.*;
-import java.util.Date;
-import java.util.HashMap;
+import java.time.LocalDate;
+
 public class Designer extends Person {
     private String tool;
     /**
@@ -11,10 +10,11 @@ public class Designer extends Person {
      @param birthDate the birth date of the designer
      @param tool the design tool of the designer
      */
-    public Designer(String name, Date birthDate, String tool) {
+    public Designer(String name, LocalDate birthDate, String tool) {
         super(name, birthDate);
         this.tool = tool;
     }
+
     /**
 
      Gets the design tool of the designer.

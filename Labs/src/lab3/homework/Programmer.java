@@ -1,7 +1,6 @@
 package lab3.homework;
-import java.util.*;
-import java.util.Date;
-import java.util.HashMap;
+import java.time.LocalDate;
+
 public class Programmer extends Person {
     private String language;
 
@@ -12,7 +11,7 @@ public class Programmer extends Person {
      * @param birthDate the birth date of the programmer
      * @param language the programming language of the programmer
      */
-    public Programmer(String name, Date birthDate, String language) {
+    public Programmer(String name, LocalDate birthDate, String language) {
         super(name, birthDate);
         this.language = language;
     }
