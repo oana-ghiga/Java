@@ -10,7 +10,7 @@ public class Main {
         // Create some people
         Person alice = new Person("Alice", LocalDate.of(1990, 1, 1));
         Programmer bob = new Programmer("Bob", LocalDate.of(1995, 5, 1),"Java");
-        Designer charlie = new Designer("Charlie", LocalDate.of(1992, 3, 1),"Python");
+        Designer charlie = new Designer("Charlie", LocalDate.of(1992, 3, 1),"sketch");
         Person dave = new Person("Dave", LocalDate.of(1985, 4, 1));
         Person eve = new Person("Eve", LocalDate.of(1988, 2, 1));
 
