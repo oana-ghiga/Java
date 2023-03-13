@@ -39,6 +39,11 @@ public class Main {
         eve.addRelationship(bob, "Coworker");
         eve.setEmployer(google, "Marketing");
 
+        // Add some employees to the companies
+        google.addEmployee(alice, "Software engineer");
+
+        alice.setSpecificProperty(23);
+
         // Compute the importance of each node
         int importance = network.computeImportance(Network.getNodes());
 
