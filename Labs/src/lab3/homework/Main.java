@@ -15,9 +15,9 @@ public class Main {
         Person eve = new Person("Eve", LocalDate.of(1988, 2, 1));
 
         // Create some companies
-        Company google = new Company("Google", "Internet search");
-        Company microsoft = new Company("Microsoft", "Computer software");
-        Company apple = new Company("Apple", "Consumer electronics");
+        Company google = new Company("Google", "Search engine");
+        Company microsoft = new Company("Microsoft", "Software");
+        Company apple = new Company("Apple", "Electronics");
 
         // Add the nodes to the network
         network.addNode(alice);
@@ -38,6 +38,12 @@ public class Main {
         dave.addRelationship(alice, "Family");
         eve.addRelationship(bob, "Coworker");
         eve.setEmployer(google, "Marketing");
+
+        // Add some employees to the companies
+        google.addEmployee(alice, "Software engineer");
+        google.addEmployee(eve, "Marketing");
+        microsoft.addEmployee(bob, "Programmer");
+        apple.addEmployee(charlie, "Designer");
 
         // Compute the importance of each node
         int importance = network.computeImportance(Network.getNodes());
