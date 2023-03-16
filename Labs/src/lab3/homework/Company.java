@@ -10,9 +10,9 @@ public class Company implements Comparable{
      Constructs a company with the given name.
      @param name the name of the company
      */
-    public Company(String name,String specificProperty){
+    public Company(String name,String specificProperty){//added specificProperty for each company
         this.name = name;
-        this.employees = new HashMap<>();
+        this.employees = new HashMap<>();//changed to HashMap
         this.specificProperty = specificProperty;
     }
     /**
@@ -28,7 +28,7 @@ public class Company implements Comparable{
      Gets the map of person-to-company relationships.
      @return the map of person-to-company relationships
      */
-    public Map<Person, String> getEmployees() {
+    public Map<Person, String> getEmployees() {//changed to Map
         return employees;
     }
     /**

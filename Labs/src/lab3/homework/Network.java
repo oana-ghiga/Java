@@ -59,13 +59,13 @@ public class Network {
      */
     public void printNetwork() {
         // Sort the nodes according to their importance
-        nodes.sort(Comparator.comparingInt(this::computeImportance).reversed());
+        nodes.sort(Comparator.comparingInt(this::computeImportance).reversed());// this sorts the nodes in descending order
 
         // Print the nodes in order of importance
         for (Object node : nodes) {
-            if (node instanceof Person) {
+            if (node instanceof Person) { // node instanceof Person
                 Person person = (Person) node;
-                System.out.println(person.getName() + " (" + computeImportance(person) + " connections)");
+                System.out.println(person.getName() + " (" + computeImportance(person) + " connections)"); // this prints the name of the person and the number of connections
                 Map<Person, String> relationships = person.getRelationships();
                 if (!relationships.isEmpty()) {
                     System.out.println("  Person-to-person relationships:");
@@ -78,9 +78,9 @@ public class Network {
                     System.out.println("  Person-to-company relationship:");
                     System.out.println("    - " + company.getName() + " (" + company.getEmployees().get(person) + ")");
                 }
-            } else if (node instanceof Company) {
+            } else if (node instanceof Company) { // node instanceof Company
                 Company company = (Company) node;
-                System.out.println(company.getName() + " (" + computeImportance(company) + " employees)");
+                System.out.println(company.getName() + " (" + computeImportance(company) + " employees)");// this prints the name of the company and the number of employees
                 Map<Person, String> employees = company.getEmployees();
                 if (!employees.isEmpty()) {
                     System.out.println("  Employees:");
