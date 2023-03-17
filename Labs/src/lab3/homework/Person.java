@@ -3,7 +3,7 @@ import java.time.LocalDate;
 import java.util.*;
 import java.util.HashMap;
 
-public class Person implements Comparable{
+public class Person implements Comparable{ //implemented Comparable
     private String name;
     private LocalDate birthDate;
     private Map<Person, String> relationships; // Person-to-person relationships
