@@ -1,0 +1,23 @@
+{
+  "name": "My Catalog",
+  "documents": [
+    {
+      "id": "doc1",
+      "name": "Document 1",
+      "location": "C:\\Users\\oana_\\Documents\\document1.pdf",
+      "tags": {
+        "Author": "John Doe",
+        "Year": "2022"
+      }
+    },
+    {
+      "id": "doc2",
+      "name": "Document 2",
+      "location": "http://www.dmmserver.com/Agart/978/057/9780575082441.pdf",
+      "tags": {
+        "Author": "Jane Smith",
+        "Year": "2021"
+      }
+    }
+  ]
+}
