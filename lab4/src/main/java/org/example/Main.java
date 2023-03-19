@@ -1,6 +1,8 @@
 package org.example;
 
-import java.util.Arrays;
+import java.util.*;
+import com.github.javafaker.Faker;
+import org.apache.commons.lang3.tuple.Pair;
 
 public class Main {
     public static void main(String[] args) {
@@ -9,18 +11,20 @@ public class Main {
 
         Utilities.createStudentList(students);
         Utilities.createProjectTreeSet(projects);
-        Student[] lowPreferencesStudents = Utilities.lowPreferencesStudents(students);
+        List<Student> lowPreferencesStudents = new ArrayList<>(Arrays.asList(Utilities.lowPreferencesStudents(students)));
         System.out.println("Students with low preferences: ");
-        Utilities.printStudents(lowPreferencesStudents);
+        lowPreferencesStudents.forEach(System.out::println);
 
-        Problem problem = new Problem(students, projects);
-        Pair<Integer, Matching> result = problem.solve();
-        System.out.println("Maximum matching: " + result.getKey());
+        Problem problem = new Problem(Arrays.asList(students), new TreeSet<>(Arrays.asList(projects)));
+        Set<Pair<Student, Project>> matching = problem.generateMatching();
+        System.out.println("Maximum matching size: " + matching.size());
         System.out.println("Assigned projects: ");
-        result.getValue().getAssignedProjects().forEach((student, project) -> System.out.println(student.getName() + "-" + project.getName()));
+        matching.forEach(pair -> System.out.println(pair.getKey().getName() + "-" + pair.getValue().getName()));
 
-        Project[] randomProjects = Utilities.createRandomProjects();
-        Student[] randomStudents = Utilities.createRandomStudents(randomProjects);
+        // Generate random students and projects
+        Faker faker = new Faker();
+        Project[] randomProjects = Utilities.createRandomProjects(faker);
+        Student[] randomStudents = Utilities.createRandomStudents(randomProjects, faker);
 
         System.out.println("Random projects: ");
         Arrays.stream(randomProjects).forEach(project -> System.out.print(project.getName() + " "));
@@ -28,10 +32,10 @@ public class Main {
         System.out.println("Random students: ");
         Arrays.stream(randomStudents).forEach(student -> System.out.print(student.getName() + " "));
 
-        Problem randomProblem = new Problem(randomStudents, randomProjects);
-        Pair<Integer, Matching> randomResult = randomProblem.solve();
-        System.out.println("Maximum matching: " + randomResult.getKey());
+        Problem randomProblem = new Problem(Arrays.asList(randomStudents), new TreeSet<>(Arrays.asList(randomProjects)));
+        matching = randomProblem.generateMatching();
+        System.out.println("Maximum matching size: " + matching.size());
         System.out.println("Assigned projects: ");
-        randomResult.getValue().getAssignedProjects().forEach((student, project) -> System.out.println(student.getName() + "-" + project.getName()));
+        matching.forEach(pair -> System.out.println(pair.getKey().getName() + "-" + pair.getValue().getName()));
     }
 }
