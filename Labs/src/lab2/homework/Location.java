@@ -65,6 +65,5 @@ public class Location {
                 && this.x == other.x && this.y == other.y;
     }
 
-    // getters and setters
 }
 
