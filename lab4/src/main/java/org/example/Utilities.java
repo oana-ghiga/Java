@@ -1,7 +1,7 @@
 package org.example;
 
 import com.github.javafaker.Faker;
-import javafx.util.Pair;
+import org.apache.commons.lang3.tuple.Pair;
 import org.example.Project;
 import org.example.Student;
 import org.example.Problem;
@@ -10,6 +10,7 @@ import java.util.*;
 import java.util.stream.IntStream;
 
 public class Utilities {
+    Object students;
     public static List<Project> createProjectList(Project[] projectArray) {
         return new LinkedList<>(Arrays.asList(projectArray));
     }
@@ -123,18 +124,39 @@ public class Utilities {
         var projects = createRandomProjects();
         var students = createRandomStudents(projects);
 
-        return new Problem(Arrays.asList(students), Arrays.asList(projects));
+        return new Problem(Arrays.asList(students), (Set<Project>) Arrays.asList(projects));
     }
 
-    public static void findMatching(Problem problem) {
+    public static Project[] createRandomProjects(Faker faker) {
+        List<Project> listOfProjects = new LinkedList<>();
+
+        int i = 0;
+        while (i < 5) {
+            String name = faker.pokemon().name();
+            if (listOfProjects.stream().noneMatch(project -> project.getName().equals(name))) {
+                listOfProjects.add(new Project(name));
+                i++;
+            }
+        }
+        return listOfProjects.toArray(Project[]::new);
+    }
+
+    public static Student[] createRandomStudents(Project[] randomProjects, Faker faker) {
+        return IntStream.range(0, 5)
+                .mapToObj(student ->
+                        new Student(faker.name().fullName(), randomProjectPreferences(randomProjects)))
+                .toArray(Student[]::new);
+    }
+
+    public void findMatching(Problem problem) {
         //bun deci am un graf; iau muchii (Adica perechi de doua chestii : student -> proiect );
         //le pun in M (adica o lista de perechi student - proiect)
         //cand am o muchie care intersecteaza o alta (o extremitate exista deja in M), nu o adaug in M
         //graful meu va fi o lista de perechi student- proiect, care reprezinta toate muchiile din graf
         List<Pair<Student, Project>> listOfEdges = createGraphEdges(problem);
         List<Pair<Student, Project>> matching = new LinkedList<>();
-        List<Project> copyOfProjectList = new LinkedList<>(problem.getProjectList());
-        List<Student> copyOfStudentList = new LinkedList<>(problem.getStudentList());
+        List<Project> copyOfProjectList = new LinkedList<>();
+        List<Student> copyOfStudentList = new LinkedList<>();
 
         for (Pair<Student, Project> edge : listOfEdges) {
             //verific daca studentul / proiectul au fost alocate deja
@@ -149,12 +171,28 @@ public class Utilities {
         printMatching(matching);
     }
 
-    public static List<Pair<Student, Project>> createGraphEdges(Problem problem) {
+    public List<Pair<Student, Project>> createGraphEdges(Problem problem) {
         List<Pair<Student, Project>> listOfEdges = new LinkedList<>();
 
-        for (Student student : problem.getStudentList()) {
+
+        for (Student student : problem.getStudentList(students)) {
             for (Project project : student.getAdmissableProjects()) {
-                Pair<Student, Project> pair = new Pair<>(student, project);
+                Pair<Student, Project> pair = new Pair<>() {
+                    @Override
+                    public Project setValue(Project value) {
+                        return null;
+                    }
+
+                    @Override
+                    public Student getLeft() {
+                        return null;
+                    }
+
+                    @Override
+                    public Project getRight() {
+                        return null;
+                    }
+                };
                 listOfEdges.add(pair);
             }
         }
@@ -166,13 +204,4 @@ public class Utilities {
             System.out.println("Student " + edge.getKey().getName() + " has the project " + edge.getValue().getName());
     }
 
-    public static void printStudentPreferences(Problem problem) {
-        for (Student student : problem.getStudentList()) {
-            System.out.print("Student " + student.getName() + " has the preferences: ");
-            for (Project project : student.getAdmissableProjects())
-                System.out.print(project.getName() + ", ");
-            System.out.println();
-        }
-        System.out.println();
-    }
 }

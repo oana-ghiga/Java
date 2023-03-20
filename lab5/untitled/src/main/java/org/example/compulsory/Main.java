@@ -17,7 +17,7 @@ public class Main {
             document1.setTagValue("Year", "2022");
             catalog.addDocument(document1);
 
-            Document document2 = new Document("doc2", "Document 2", "https://example.com/documents/doc2.pdf");
+            Document document2 = new Document("doc2", "Document 2", "http://www.dmmserver.com/Agart/978/057/9780575082441.pdf");
             document2.setTagValue("Author", "Jane Smith");
             document2.setTagValue("Year", "2021");
             catalog.addDocument(document2);

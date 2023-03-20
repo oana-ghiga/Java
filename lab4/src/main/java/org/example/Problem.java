@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.*;
+import org.apache.commons.lang3.tuple.Pair;
 
 public class Problem {
     private List<Student> students;
@@ -45,17 +46,37 @@ public class Problem {
                     preferences.add(student);
                 }
             });
-            while (!preferences.isEmpty() && matching.containsValue(project)) {
+            while (!preferences.isEmpty() && matching.contains(project)) {
                 preferences.sort(Comparator.comparingInt(student -> {
-                    int index = project.getPreferences().indexOf(student);
+                    int index = project.getPreferences().indexOf(String.valueOf(student));
                     return index == -1 ? Integer.MAX_VALUE : index;
                 }));
                 Student selected = preferences.remove(0);
                 matching.removeIf(pair -> pair.getKey().equals(selected));
-                matching.add(new Pair<>(selected, project));
+                matching.add(new Pair<>() {
+                    @Override
+                    public Project setValue(Project value) {
+                        return null;
+                    }
+
+                    @Override
+                    public Student getLeft() {
+                        return students.iterator().next();
+                    }
+
+                    @Override
+                    public Project getRight() {
+                        return projects.iterator().next();
+                    }
+
+                });
                 unmatchedStudents.remove(selected);
             }
         });
         return matching;
+    }
+
+    public Student[] getStudentList(Object students) {
+        return (Student[]) students;
     }
 }

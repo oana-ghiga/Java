@@ -1,3 +1,7 @@
+PLS IGNORE THE HOMEWORK IN LAB 4, MADE A NEW FOLDER WITH A NEW PROJECT CAUSE HERE IT WASN'T WORKING
+
+
+
 The Student-Project Allocation Problem
 An instance of this problem consists of students and projects. Each student has a list of projects that are admissible.
 A matching is a set of pairs (student, project) such that each student is assigned to at most one project and each project is assigned to at most one student. We consider the problem of creating a maximum cardinality matching between students and projects.
