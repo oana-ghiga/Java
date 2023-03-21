@@ -2,10 +2,6 @@ package org.example;
 
 import com.github.javafaker.Faker;
 import org.apache.commons.lang3.tuple.Pair;
-import org.example.Project;
-import org.example.Student;
-import org.example.Problem;
-
 import java.util.*;
 import java.util.stream.IntStream;
 
@@ -72,9 +68,6 @@ public class Utilities {
                 mapToInt(student -> student.getAdmissableProjects().size()).average();
     }
 
-    public static void printStudents(Student[] students) {
-        Arrays.asList(students).forEach(student -> System.out.println(student.getName()));
-    }
 
     public static Project[] createRandomProjects() {
         Faker faker = new Faker();
