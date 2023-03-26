@@ -37,5 +37,7 @@ public class Main {
         System.out.println("Maximum matching size: " + matching.size());
         System.out.println("Assigned projects: ");
         matching.forEach(pair -> System.out.println(pair.getKey().getName() + "-" + pair.getValue().getName()));
+
+
     }
 }
