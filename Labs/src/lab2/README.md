@@ -30,3 +30,23 @@ Write doc comments in your source code and generate the class documentation usin
 Create a class to describe the solution.
 Implement an algorithm to find the best route from a location to another, either as the shortest route, or the fastest route.
 Generate large random instances of the problem and analyze the performance of your algorithm (running times, memory consumption).
+   
+We used the classes
+
+Location: This class would have attributes like name, type, and x, y coordinates.
+
+Road: This class would have attributes like type, length, and speed limit.
+
+Route: This class would represent a route from one location to another. It would have attributes like start location, end location, distance, and travel time.
+
+Graph: This class would represent the entire graph of locations and roads. It would contain a list of locations and a list of roads.
+
+ShortestRouteFinder: This class would implement an algorithm to find the shortest route between two locations in the graph.
+
+FastestRouteFinder: This class would implement an algorithm to find the fastest route between two locations in the graph.
+
+BestRouteFinder: This class would use the ShortestRouteFinder and FastestRouteFinder to find the best route between two locations based on a given criteria (shortest or fastest).
+
+RandomProblemGenerator: This class would generate random instances of the problem for performance testing.
+
+PerformanceAnalyzer: This class would analyze the performance of the algorithm by measuring the running times and memory consumption of the program.
