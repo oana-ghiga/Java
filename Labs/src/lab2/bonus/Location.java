@@ -1,11 +1,11 @@
-package bonus;
+package lab2.bonus;
 public class Location {
     private String name;
-    private LocationType locationType;
+    private bonus.LocationType locationType;
     private int x;
     private int y;
 
-    public Location(String name, LocationType locationType, int x, int y) {
+    public Location(String name, bonus.LocationType locationType, int x, int y) {
         this.name = name;
         this.locationType = locationType;
         this.x = x;
