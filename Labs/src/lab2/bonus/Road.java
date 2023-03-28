@@ -1,4 +1,4 @@
-package bonus;
+package lab2.bonus;
 
 public class Road {
     private RoadType roadType;

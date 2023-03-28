@@ -1,4 +1,4 @@
-package bonus;
+package lab2.bonus;
 import java.util.ArrayList;
 
 public class Route {
