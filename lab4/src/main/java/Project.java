@@ -1,6 +1,6 @@
-package org.example;
+import org.jgrapht.graph.DefaultEdge;
 
-public class Project implements Comparable<Project> {
+public class Project extends DefaultEdge implements Comparable<Project> {
     private String name;
     String preferences;
 

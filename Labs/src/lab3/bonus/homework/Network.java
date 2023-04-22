@@ -1,16 +1,16 @@
-package lab3.homework;
+package lab3.bonus.homework;
 import java.util.*;
 import java.util.Date;
 import java.util.HashMap;
 public class Network {
 
-    public List<Object> getNetwork() {
+    public static List<Object> getNetwork() {
         return network;
     }
 
     //-> un array list de obiecte pt fiecare in parte gen programmer1, programmer2, programmer3, etc same for companies
-    private ArrayList<Object> nodes;
-    private List<Object> network;
+    private static ArrayList<Object> nodes;
+    private static List<Object> network;
     /**
      * Constructs a network with an empty list of nodes.
      */
@@ -23,7 +23,7 @@ public class Network {
      *
      * @return the list of nodes in the network
      */
-    public List<List<Object>> getNodes() {
+    public static List<List<Object>> getNodes() {
         return (List) nodes;
     }
 
