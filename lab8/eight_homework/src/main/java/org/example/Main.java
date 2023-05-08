@@ -17,7 +17,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Path pathToFile = Paths.get("C:\\Users\\oana_\\Desktop\\mine\\eight_homework\\archive\\albumlist.csv");
+        Path pathToFile = Paths.get("C:\\Users\\oana_\\Documents\\GitHub\\Java\\lab8\\eight_homework\\archive\\albumlist.csv");
         ArtistDAO artists = new ArtistDAO();
         AlbumDAO albums = new AlbumDAO();
         GenreDAO genres = new GenreDAO();
